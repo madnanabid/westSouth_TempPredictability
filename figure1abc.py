@@ -73,11 +73,12 @@ kashmir=gpd.read_file('E:/DATA/topo/kashmir.shp')
 ax1.add_geometries(kashmir['geometry'], crs=ccrs.PlateCarree(), facecolor='none', edgecolor='k', linewidth=0.8)
 # Annual Cycle: Temperature and Precipitation
 # Prepare data
-dir1 = "E:/DATA/ERA-DATA/ts/"
-dir2 = "E:/DATA/ERA-DATA/prcp/"
-tmpmn = nc.Dataset(dir1 + "ac.era5_tas.mon.1981-2022.1deg.nc", "r")
-tmpstd = nc.Dataset(dir1 + "std.ac.era5_tas.mon.1981-2022.1deg.nc", "r")
-prcpmn = nc.Dataset(dir2 + "ac.era5.prcp.1981_2022_new.nc", "r")
+dir1 = "Data Path"
+dir2 = "Data Path"
+
+tmpmn = nc.Dataset(dir1 + "filename", "r")
+tmpstd = nc.Dataset(dir1 + "filename", "r")
+prcpmn = nc.Dataset(dir2 + "filename", "r")
 timevar = tmpmn.variables['time']
 lonvar = tmpmn.variables['lon'][:]
 latvar = tmpmn.variables['lat'][:]
@@ -134,10 +135,10 @@ ax2.set_xlabel("Month", fontsize=14)
 months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
 r_values = []
 for month in months:
-    dir1 = "E:/DATA/ERA-DATA/ts/mon/" + month + "/"
-    dir2 = "E:/DATA/ERA-DATA/sst/mon/" + month + "/"
-    tmp = nc.Dataset(dir1 + "dt.era5_tas." + month + ".1981-2022_1deg.nc", "r")
-    sst = nc.Dataset(dir2 + "dt.era5_sst." + month + ".1981_2022.nc", "r")
+    dir1 = "Data Path" + month + "/"
+    dir2 = "Data Path" + month + "/"
+    tmp = nc.Dataset(dir1 + "dt.era5_tas." + month + "filename", "r")
+    sst = nc.Dataset(dir2 + "dt.era5_sst." + month + ".filename", "r")
     timevar = tmp.variables['time']
     lonvar = tmp.variables['lon'][:]
     latvar = tmp.variables['lat'][:]
