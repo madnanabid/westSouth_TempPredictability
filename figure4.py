@@ -408,8 +408,7 @@ tscore = (numt/denmt)
 #print(tscore.shape)
 t90 = stats.t.ppf(1-0.05, df-2)
 t95 = stats.t.ppf(1-0.025,df-2)
-# t90 = stats.t.ppf(1-0.10, df)
-# t95 = stats.t.ppf(1-0.05,df)
+
 print(t90)
 print(t95)
 ############# t test emj here ####
@@ -547,6 +546,7 @@ tscore = []
 tscore = (numt/denmt)
 t90 = stats.t.ppf(1-0.05, df)
 t95 = stats.t.ppf(1-0.025,df)
+
 print(t90)
 print(t95)
 parallels = np.arange(-40,41,20.) # make latitude lines ever 5 degrees from 30N-50N
