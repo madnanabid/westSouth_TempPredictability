@@ -2,7 +2,7 @@
 """
 Created on Fri jun 23 09:11:04 2023
 
-@author: Dr Irfan Rasheed
+@author: Irfan
 """
 
 import itertools
