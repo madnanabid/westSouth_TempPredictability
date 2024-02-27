@@ -119,8 +119,8 @@ cbar.ax.set_title('Mean Temperature (°C)',fontsize=14)
 #---------------------STD---------------------
 
 # File paths
-era_data_path = 'E:/DATA/ERA-DATA/ts/MJ/'
-era_file_name = 'dt.era5_tas.MJ.1981-2022_1deg.nc'
+era_data_path = 'Data Path'
+era_file_name = 'filename'
 # seas_data_path = 'i:/DATA/ECMWF-SYS5/t2m/cat/dt/'
 # seas_file_name = 'ensmean.sys5.t2m.MJ.1981-2022.nc'
 
@@ -162,7 +162,7 @@ ax3.set_title("ERA5", loc='right', fontsize=14)
 
 # Plot STD SEAS5 data
 # Data path
-diri = "E:/DATA/ECMWF-SYS5/t2m/cat/dt/"
+diri = "Data Path"
 
 # List of ensemble file names
 file_names = ["sys5_e1.nc", "sys5_e2.nc", "sys5_e3.nc", "sys5_e4.nc", "sys5_e5.nc",
