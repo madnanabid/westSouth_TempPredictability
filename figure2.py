@@ -15,10 +15,10 @@ from cartopy.util import add_cyclic_point
 import netCDF4 as nc
 
 # File paths
-era_data_path = 'E:/DATA/ERA-DATA/ts/MJ/'
-era_file_name = 'era5_tas.MJ.1981-2022_1deg.nc'
-seas_data_path = 'E:/DATA/ECMWF-SYS5/t2m/cat/'
-seas_file_name = 'ensmean.sys5.t2m.MJ.1981-2022.nc'
+era_data_path = 'Data path'
+era_file_name = 'Data path'
+seas_data_path = 'Data Path'
+seas_file_name = 'Data path'
 
 # Open ERA data
 ds_era = xr.open_dataset(era_data_path + era_file_name, decode_times=False)
