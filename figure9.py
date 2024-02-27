@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Feb 21 23:24:05 2024
+@author: Irfan
 
 """
 
@@ -14,10 +15,10 @@ from cartopy.util import add_cyclic_point
 import cartopy.feature as cf
 from scipy import stats
 from matplotlib.patches import Rectangle
-path1='E:/DATA/ERA-DATA/ts/MJ/'
-path2='E:/DATA/ECMWF-SYS5/t2m/cat/dt/'
-fname1='dt.era5_tas.MJ.1981-2022_1deg.nc'
-fname2='ensmean.sys5.t2m.MJ.1981-2022.nc'
+path1='Data path'
+path2='Data Path'
+fname1='Data Path'
+fname2='Data Path'
 
 f=xr.open_dataset(path1+fname1, decode_times=False)
 g=xr.open_dataset(path2+fname2)
@@ -337,8 +338,8 @@ tscore = []
 tscore = abs(numt/denmt)
 #print(tscore)
 #tscore1 = tscore
-t90 = stats.t.ppf(1-0.01, df)
-t95 = stats.t.ppf(1-0.005, df)
+t90 = stats.t.ppf(1-0.05, df)
+t95 = stats.t.ppf(1-0.025, df)
 ax2.set_xticks(np.arange(55,91,5), crs=ccrs.PlateCarree())
 lon_formatter = cticker.LongitudeFormatter()
 ax2.xaxis.set_major_formatter(lon_formatter)
