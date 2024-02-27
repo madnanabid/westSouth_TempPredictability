@@ -17,7 +17,7 @@ from matplotlib.patches import Rectangle
 from scipy.stats import linregress
 import geopandas as gpd
 # Load topographic data from the netCDF file
-dataset = Dataset('E:/DATA/topo/etopo2.nc')
+dataset = Dataset('Data Path')
 lat = dataset.variables['lat'][:]
 lon = dataset.variables['lon'][:]
 topo_data = dataset.variables['btdata'][:]
