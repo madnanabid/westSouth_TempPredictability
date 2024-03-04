@@ -136,10 +136,10 @@ tscore = abs(numt/denmt)
 #print(tscore)
 #tscore1 = tscore
 
-t90 = stats.t.ppf(1-0.10, df)
-t95 = stats.t.ppf(1-0.05, df)
+t80 = stats.t.ppf(1-0.10, df)
+t90 = stats.t.ppf(1-0.05, df)
+print(t80)
 print(t90)
-print(t95)
 
 fig = plt.figure(figsize=(12, 13), constrained_layout=True)
 ax1 = fig.add_subplot(3, 2, 1)
@@ -161,7 +161,7 @@ plt.gca().add_patch(Rectangle((65, 31),
                         fc ='none', 
                         ec ='black',
                         lw = 2))
-plt.contourf(x,y,tscore[:,:], levels=[-1*t95, -1*t90, t90, t95],extend='both',
+plt.contourf(x,y,tscore[:,:], levels=[-1*t90, -1*t80, t80, t90],extend='both',
               colors = 'none', hatches=['..',None,None, None, '..'],alpha=0)
 
 plt.title("a) TMP(SATIp)", loc='left', fontsize=14 )
@@ -178,10 +178,10 @@ denmt=np.sqrt(np.mean(pow(t2m_satiN,2)))/np.sqrt(df)
 tscore = []
 tscore = abs(numt/denmt)
 
-t90 = stats.t.ppf(1-0.10, df)
-t95 = stats.t.ppf(1-0.05, df)
+t80 = stats.t.ppf(1-0.10, df)
+t90 = stats.t.ppf(1-0.05, df)
+print(t80)
 print(t90)
-print(t95)
 #--------------------------------------------------
 ax1 = fig.add_subplot(3, 2, 2)
 lons, lats = np.meshgrid(lonvar, latvar)
@@ -200,7 +200,7 @@ plt.gca().add_patch(Rectangle((65, 31),
                         fc ='none', 
                         ec ='black',
                         lw = 2))
-plt.contourf(x,y,tscore[:,:], levels=[-1*t95, -1*t90, t90, t95],extend='both',
+plt.contourf(x,y,tscore[:,:], levels=[-1*t90, -1*t80, t80, t90],extend='both',
               colors = 'none', hatches=['..',None,None, None, '..'],alpha=0)
 plt.title("d) TMP(SATIn)", loc='left', fontsize=14 )
 plt.title("ERA5", loc='right', fontsize=14 )
@@ -220,10 +220,9 @@ denmt=np.sqrt(np.mean(pow(hgt_satiP,2)))/np.sqrt(df)
 tscore = []
 tscore = abs(numt/denmt)
 #print(tscore)
-t90 = stats.t.ppf(1-0.10, df)
-t95 = stats.t.ppf(1-0.05, df)
-# print(t90)
-# print(t95)
+t80 = stats.t.ppf(1-0.10, df)
+t90 = stats.t.ppf(1-0.05, df)
+
 
 lons, lats = np.meshgrid(lonvar, latvar)
 m = bm.Basemap(projection='cyl',llcrnrlat=10, llcrnrlon=10,urcrnrlat=61, urcrnrlon=121, lon_0=-80, lat_0=0, resolution='l')
@@ -237,7 +236,7 @@ m.drawparallels(parallels,labels=[1,0,0,0],fontsize=10,linewidth=0.01)
 m.drawmeridians(meridians,labels=[0,0,0,1],fontsize=10,linewidth=0.01)
 map3=m.contourf(x,y,satiP_hgt_mean,np.arange(-35,36,5),cmap=plt.cm.RdBu_r,extend='both')
 
-plt.contourf(x,y,tscore[:,:], levels=[-1*t95, -1*t90, t90, t95],extend='both',
+plt.contourf(x,y,tscore[:,:], levels=[-1*t90, -1*t80, t80, t90],extend='both',
               colors = 'none', hatches=['..',None,None, None, '..'],alpha=0)
 plt.title("b) Z200(SATIp)", loc='left', fontsize=14 )
 plt.title("ERA5", loc='right', fontsize=14 )
@@ -255,10 +254,9 @@ denmt=np.sqrt(np.mean(pow(hgt_satiN,2)))/np.sqrt(df)
 tscore = []
 tscore = abs(numt/denmt)
 #print(tscore)
-t90 = stats.t.ppf(1-0.10, df)
-t95 = stats.t.ppf(1-0.05, df)
-# print(t90)
-# print(t95)
+t80 = stats.t.ppf(1-0.10, df)
+t90 = stats.t.ppf(1-0.05, df)
+
 
 lons, lats = np.meshgrid(lonvar, latvar)
 m = bm.Basemap(projection='cyl',llcrnrlat=10, llcrnrlon=10,urcrnrlat=61, urcrnrlon=121, lon_0=-80, lat_0=0, resolution='l')
@@ -270,7 +268,7 @@ meridians = np.arange(10,121,20.) # make longitude lines
 m.drawparallels(parallels,labels=[1,0,0,0],fontsize=10,linewidth=0.01)
 m.drawmeridians(meridians,labels=[0,0,0,1],fontsize=10,linewidth=0.01)
 map4=m.contourf(x,y,satiN_hgt_mean,np.arange(-35,36,5),cmap=plt.cm.RdBu_r,extend='both')
-plt.contourf(x,y,tscore[:,:], levels=[-1*t95, -1*t90, t90, t95],extend='both',
+plt.contourf(x,y,tscore[:,:], levels=[-1*t90, -1*t80, t80, t90],extend='both',
               colors = 'none', hatches=['..',None,None, None, '..'],alpha=0)
 plt.title("e) Z200(SATIn)", loc='left', fontsize=12 )
 plt.title("ERA5", loc='right', fontsize=12 )
@@ -300,10 +298,10 @@ tscore = abs(numt/denmt)
 #print(tscore)
 #tscore1 = tscore
 
-t90 = stats.t.ppf(1-0.10, df)
-t95 = stats.t.ppf(1-0.05, df)
+t80 = stats.t.ppf(1-0.10, df)
+t90 = stats.t.ppf(1-0.05, df)
+print(t80)
 print(t90)
-print(t95)
 
 ax4 = fig.add_subplot(3, 2, 5)
 #def composites(sample):
@@ -319,7 +317,7 @@ m.drawparallels(parallels,labels=[1,0,0,0],fontsize=10,linewidth=0.01)
 m.drawmeridians(meridians,labels=[0,0,0,1],fontsize=10,linewidth=0.01)
 map2=m.contourf(x,y,satiP_sst_mean,np.arange(-0.7,0.8,0.1),cmap=plt.cm.RdBu_r,extend='both')
 
-plt.contourf(x,y,tscore[:,:], levels=[-1*t95, -1*t90, t90, t95],extend='both',
+plt.contourf(x,y,tscore[:,:], levels=[-1*t90, -1*t80, t80, t90],extend='both',
               colors = 'none', hatches=['...',None,None, None, '...'],alpha=0)
 plt.title("c) SST(SATIp)", loc='left', fontsize=14 )
 plt.title("ERA5", loc='right', fontsize=14 )
@@ -338,10 +336,9 @@ tscore = abs(numt/denmt)
 #print(tscore)
 #tscore1 = tscore
 
-t90 = stats.t.ppf(1-0.10, df)
-t95 = stats.t.ppf(1-0.05, df)
-print(t90)
-print(t95)
+t80 = stats.t.ppf(1-0.10, df)
+t90 = stats.t.ppf(1-0.05, df)
+
 
 ax5 = fig.add_subplot(3, 2, 6)
 
@@ -358,7 +355,7 @@ m.drawparallels(parallels,labels=[1,0,0,0],fontsize=10,linewidth=0.01)
 m.drawmeridians(meridians,labels=[0,0,0,1],fontsize=10,linewidth=0.01)
 map3=m.contourf(x,y,satiN_sst_mean,np.arange(-0.7,0.8,0.1),cmap=plt.cm.RdBu_r,extend='both')
 
-plt.contourf(x,y,tscore[:,:], levels=[-1*t95, -1*t90, t90, t95],extend='both',
+plt.contourf(x,y,tscore[:,:], levels=[-1*t90, -1*t80, t80, t90],extend='both',
               colors = 'none', hatches=['...',None,None, None, '...'],alpha=0)
 
 plt.title("f) SST(SATIn)", loc='left', fontsize=14 )
