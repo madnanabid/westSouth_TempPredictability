@@ -4,6 +4,7 @@ Created on Sun Feb 18 21:44:01 2024
 
 """
 
+
 import numpy as np
 import xarray as xr
 import matplotlib.pyplot as plt
@@ -16,23 +17,23 @@ import cartopy.mpl.ticker as cticker
 from scipy.stats import linregress
 from scipy import stats
 # Load ERA5 data
-path_era5 = 'Data Path'
-filename_era5 = 'filename'
+path_era5 = 'E:/DATA/ERA-DATA/ts/MJ/ecmwf-anal/eof/newdom/'
+filename_era5 = 'eof.dt.era5_tas.MJ.1981-2022.ev.nc'
 ds_era5 = xr.open_dataset(path_era5 + filename_era5)
 lat_era5 = ds_era5['lat'][:]
 lon_era5 = ds_era5['lon'][:]
 data_era5 = ds_era5['ev'][0, :, :]
 
 # Load SEAS5 data
-path_seas5 = 'filename'
-filename_seas5 = 'filename'
+path_seas5 = 'E:/DATA/ECMWF-SYS5/t2m/cat/dt/eof/'
+filename_seas5 = 'eof.cat.sys5_allens.ev.nc'
 ds_seas5 = xr.open_dataset(path_seas5 + filename_seas5)
 lat_seas5 = ds_seas5['lat'][:]
 lon_seas5 = ds_seas5['lon'][:]
 data_seas5 = ds_seas5['ev'][0, :, :] * -1
 
 # Plot settings
-fig = plt.figure(figsize=(14, 12))
+fig = plt.figure(figsize=(14, 10))
 
 # Plot topography at the top
 ax1 = fig.add_subplot(2, 2, 1, projection=ccrs.PlateCarree())
@@ -86,17 +87,17 @@ ax2.set_title("b) EOF1: Var = 38%", loc='left', fontsize=14)
 ax2.set_title("SEAS5", loc='right', fontsize=14)
 
 # Create a colorbar for the first two subplots
-cbar_ax = fig.add_axes([0.2, 0.5, 0.6, 0.04])  # [left, bottom, width, height]
+cbar_ax = fig.add_axes([0.2, 0.47, 0.6, 0.04])  # [left, bottom, width, height]
 #cbar_ax = fig.add_axes([0.1, 0.5, 0.8, 0.03])
 cbar = fig.colorbar(cs1, cax=cbar_ax, orientation='horizontal')
-cbar.ax.set_title('Temperature(°C)', fontsize=14)
+#cbar.ax.set_title('Temperature(°C)', fontsize=14)
 cbar.ax.tick_params(labelsize=14)
 
 #------------------------Timeseries------------------
 # Plot SATI data
-dir1 = "Data Path"
-dir2 = "Data Path"
-dir3 = "Data Path"
+dir1 = "directory path"
+dir2 = "directory path"
+dir3 = "directory path"
 
 pc1_obs = nc.Dataset(dir1 + "filename", "r")
 pc1_mod = nc.Dataset(dir2 + "filename", "r")
@@ -168,8 +169,8 @@ label2 = "{:.2f}".format(r_value1)
 #print(label)
 # print(label2)
 # print(label3)
-plt.text(1982,2.3, 'CC: PC1(ERA5) vs PC1(SEAS5) = (%s)'%(label), fontsize=12)
-plt.text(1982,2, 'CC: PC1(ERA5) vs SATI      = (%s)'%(label2), fontsize=12)
+plt.text(1982,2.2, 'CC: PC1(ERA5) vs PC1(SEAS5) = (%s)'%(label), fontsize=12)
+plt.text(1982,1.9, 'CC: PC1(ERA5) vs SATI      = (%s)'%(label2), fontsize=12)
 ax3.set_ylim(-2.5, 2.5, 0.5)
 ax3.set_ylabel('Temperature (°C)', fontsize=14)
 ax3.set_xlim(1981, 2023, 3)
