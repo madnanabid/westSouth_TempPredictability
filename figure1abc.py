@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sun Feb 18 21:44:01 2024
-
-@author: Dell
 """
 
 import numpy as np
@@ -17,7 +15,7 @@ from matplotlib.patches import Rectangle
 from scipy.stats import linregress
 import geopandas as gpd
 # Load topographic data from the netCDF file
-dataset = Dataset('Data Path')
+dataset = Dataset('Data path and filename')
 lat = dataset.variables['lat'][:]
 lon = dataset.variables['lon'][:]
 topo_data = dataset.variables['btdata'][:]
@@ -69,13 +67,10 @@ cbar = plt.colorbar(topo, orientation='horizontal', shrink=0.4, pad=0.15)
 cbar.ax.tick_params()
 cbar.ax.set_title('Topography (KM)', loc="right")
 plt.title("a) Regional Topographic Map", loc='left', fontsize=14)
-kashmir=gpd.read_file('E:/DATA/topo/kashmir.shp')
-ax1.add_geometries(kashmir['geometry'], crs=ccrs.PlateCarree(), facecolor='none', edgecolor='k', linewidth=0.8)
 # Annual Cycle: Temperature and Precipitation
 # Prepare data
-dir1 = "Data Path"
-dir2 = "Data Path"
-
+dir1 = "Data path"
+dir2 = "Data path"
 tmpmn = nc.Dataset(dir1 + "filename", "r")
 tmpstd = nc.Dataset(dir1 + "filename", "r")
 prcpmn = nc.Dataset(dir2 + "filename", "r")
@@ -137,8 +132,8 @@ r_values = []
 for month in months:
     dir1 = "Data Path" + month + "/"
     dir2 = "Data Path" + month + "/"
-    tmp = nc.Dataset(dir1 + "dt.era5_tas." + month + "filename", "r")
-    sst = nc.Dataset(dir2 + "dt.era5_sst." + month + ".filename", "r")
+    tmp = nc.Dataset(dir1 + "filename" + month + ".1981-2022_1deg.nc", "r")
+    sst = nc.Dataset(dir2 + "filename" + month + ".1981_2022.nc", "r")
     timevar = tmp.variables['time']
     lonvar = tmp.variables['lon'][:]
     latvar = tmp.variables['lat'][:]
